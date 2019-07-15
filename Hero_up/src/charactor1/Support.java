@@ -1,10 +1,11 @@
+package charactor1;
 
-public class SupportHero extends Hero{
+import charactor.Hero;
+
+public class Support extends Hero {
 	
-	SupportHero(String name) {
-		super(name);
-	}
-
+	
+ 
 	public void heal() {
 		System.out.println("add blood");
 	}
@@ -25,4 +26,3 @@ public class SupportHero extends Hero{
 		System.out.println(h.hp);
 	}
 }
-
