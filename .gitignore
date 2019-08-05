@@ -1,2 +1,7 @@
 /.metadata/
 TimeTime/src/TIme.java
+x/.project
+x/.settings/org.eclipse.m2e.core.prefs
+x/pom.xml
+x/src/main/java/x/x/App.java
+x/src/test/java/x/x/AppTest.java
