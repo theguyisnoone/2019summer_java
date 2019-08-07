@@ -12,12 +12,16 @@ public class CutCutCut {
 	public static void readFile(File f) throws IOException {
 		if (0 == f.length())
             throw new RuntimeException("could not be cut");
-		FileInputStream  fis=new FileInputStream(f);
+		try(FileInputStream  fis=new FileInputStream(f)){
 		byte all[]=new byte[(int)f.length()];
 		fis.read(all);
 		fis.close();
 		
 		cutFile(f,all,clipLength);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	public static void  cutFile(File f,byte[] all,int length) throws IOException {
 		int fileNumber;
@@ -42,16 +46,25 @@ public class CutCutCut {
 		
 	}
 	public static void writeFile(File clipFile,byte[] clipData) throws IOException {
-		FileOutputStream fos;
+		FileOutputStream fos=null;
 		try {
-			fos = new FileOutputStream(clipFile);
+			 fos = new FileOutputStream(clipFile);
 			
 			fos.write(clipData);
-			fos.close();
+			
 			System.out.println("success");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			 if (null != fos)
+	                try {
+	 
+	                    fos.close();
+	                } catch (IOException e) {
+	                    // TODO Auto-generated catch block
+	                    e.printStackTrace();
+	                }
 		}
 		
 	}
