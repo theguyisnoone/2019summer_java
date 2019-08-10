@@ -20,13 +20,13 @@ public class FileEncode {
 			 for(char c:all) {
 				 System.out.print(c);
 			 }
-			 encode(all);
+			 decode(all);
 			 System.out.println();
 			 System.out.println("after:");
 			 for(char c:all) {
 				 System.out.print(c);
 			 }
-			 File f1=new File("d:/a1.txt");
+			 File f1=new File("d:/a2.txt");
 			 try(FileWriter fw=new FileWriter(f1)){
 				 fw.write(all);
 			 }catch(IOException e) {
@@ -39,7 +39,7 @@ public class FileEncode {
 		 
 	 }
 	 
-	 public void encode(char[] all) {
+	 public void decode(char[] all) {
 		 //developed for only work for reading
 		 for(int i=0;i<all.length;i++) {
 			 char temp=all[i];
